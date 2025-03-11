@@ -1,6 +1,4 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { useContext } from "react";
-import { DataContext } from "./components/DataContext";
 import './App.css';
 import Home from './components/Home';
 import Contact from './components/Contact';
@@ -12,20 +10,22 @@ import Wishlist from './components/Wishlist';
 import Cart from './components/Cart';
 import Account from './components/Account';
 import ItemDescription from './components/ItemDescription';
+import Login from './components/Login';
+
 // import { config } from 'dotenv';
 // config(); 
 
 
 function App() {
 
-  const { data } = useContext(DataContext);
+  // const { data } = useContext(DataContext);
 
-  // console.log(data)
+  // console.log("App rendered")
 
   
   const router = createBrowserRouter([
     {path: '/',
-    element: data ? <Home data={data} /> : <Home /> ,
+    element: <Home/>,
     errorElement: <NotFoundPage />
     },
     {path: '/contact',
@@ -41,17 +41,21 @@ function App() {
     element: <Billing /> 
     },
     {path: '/wishlist',
-    element: <Wishlist data={data}/> 
+    element: <Wishlist /> 
     },
     {path: '/cart',
-    element: <Cart data={data}/> 
+    element: <Cart /> 
     }
     ,
     {path: '/account',
-    element: <Account data={data}/> 
+    element: <Account /> 
     },
     {path: '/itemdescription/:productId',
-    element: <ItemDescription data={data}/> 
+    element: <ItemDescription /> 
+    }
+    ,
+    {path: '/login',
+    element: <Login /> 
     }
   ])
 

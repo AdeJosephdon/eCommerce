@@ -155,7 +155,6 @@ header {
   background-color: #ccc;
   /* border: 1px solid #000000; */
 }
-
 /* Top part ends here */
 
 /* Main Body starts Here */
@@ -347,6 +346,10 @@ hr {
   font-size: 16px;
   font-weight: 500;
   padding: 5px 0;
+  color: #000000;
+}
+.product-name a{
+  color: #000000;
 }
 .discounted-price {
   color: #DB4444;
@@ -419,11 +422,11 @@ hr {
 
 .new-arrivals-image-container {
     display: grid;
-    grid-template-columns: 2fr 1fr;
-    grid-template-rows: repeat(3, auto);
-    gap: 1rem;
-    /* width: 100%; */
-    /* padding: 1rem; */
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 10px;
+    width: 100%;
+    height: 600px;
   }
 
   .grid-item {
@@ -448,26 +451,26 @@ hr {
   }
 
   .grid-item.playstation {
-    grid-row: span 3;
-    grid-column: 1;
+    grid-row: 1/3;
+    grid-column: 1/3;
     background-image: url('/public/playstation5.png');
   }
 
   .grid-item.womens-collections {
-    grid-row: 1;
-    grid-column: 2;
+    grid-row: 1/2;
+    grid-column: 3/5;
     background-image: url('/public//womens-collections.png');
   }
 
   .grid-item.speakers {
-    grid-row: 2;
-    grid-column: 2;
+    grid-row: 2/3;
+    grid-column: 3/4;
     background-image: url('/public//speakers.png');
   }
 
   .grid-item.perfume {
-    grid-row: 3;
-    grid-column: 2;
+    grid-row: 2/3;
+    grid-column: 4/5;
     background-image: url('/public//perfume.png');
   }
 
@@ -506,6 +509,15 @@ hr {
 .bottom-copyright {
     background-color: #000000;
     color: #777474;
+    margin: 0;
+    height: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bottom-copyright a{
+    background-color: #000000;
+    color: white;
     margin: 0;
     height: 48px;
     display: flex;
@@ -661,8 +673,8 @@ border-radius: 4px;
   align-items: center;
 }
 .reach-number{
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 20px;
+  font-weight: 600;
   padding: 0;
   margin: 0;
 }
@@ -672,12 +684,12 @@ border-radius: 4px;
   padding: 0;
   margin: 0;
 }
-.reach-description {
+/* .reach-description {
   font-size: 14px;
   font-weight: 400;
   padding: 0;
   margin: 0;
-}
+} */
 .reach-description {
   font-size: 16px;
   font-weight: 300;
@@ -721,6 +733,7 @@ border-radius: 4px;
   justify-content: center;
   align-items: center;
   gap: 70px;
+  margin-bottom: 120px;
 }
 .servicePlus {
   padding: 40px 140px;
@@ -818,24 +831,6 @@ border-radius: 4px;
 }
 
 /* Contact Page */
-.contact-input {
-  height: 38px;
-  margin: 10px 0;
-  opacity: 50%;
-  text-indent: 10px;
-  background-color: #ccc;
-  border: none;
-  /* border-bottom: 1px solid #000000; */
-}
-.contact-textarea {
-  /* height: 38px; */
-  margin: 10px 0;
-  opacity: 50%;
-  text-indent: 10px;
-  background-color: #ccc;
-  border: none;
-  /* border-bottom: 1px solid #000000; */
-}
 .contact-button {
   background-color: #DB4444;
   color: #FFFFFF;
@@ -894,13 +889,46 @@ border-radius: 4px;
 .contact-form {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: auto;
+  grid-template-rows: 1fr 4fr; 
   gap: 10px;
+  width: 100%;
+  height: auto;
 }
-.contact-form> :nth-child(4) {
+
+.contact-name-input {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+.contact-emain-input {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+}
+.contact-text-input {
+  grid-column: 3 / 4;
+  grid-row: 1 / 2;
+}
+.contact-textarea-input {
   grid-column: 1 / 4;
-  height: 207px;
+  grid-row: 2 / 3;
 }
+.contact-input {
+  height: 50px;
+  margin: 10px 0;
+  opacity: 50%;
+  text-indent: 10px;
+  background-color: #ccc;
+  border: none;
+}
+
+.contact-textarea {
+  padding-top: 10px;
+  opacity: 50%;
+  text-indent: 10px;
+  background-color: #ccc;
+  border: none;
+  /* border-bottom: 1px solid #000000; */
+}
+
 .contact-button-container {
   padding: 0;
   margin: 0;
@@ -1628,4 +1656,9 @@ a {
 } 
 .api-error{
   color: red;
+}
+.linkUnderline {
+  text-decoration: underline;
+    text-decoration-color: #cccccc;
+    text-underline-offset: 5px;
 }

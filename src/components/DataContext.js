@@ -1,17 +1,26 @@
-import React, { createContext, useState, useEffect } from "react";
+import React, { useRef, createContext, useState, useEffect } from "react";
 
 export const DataContext = createContext();
 
 function DataProvider({ children }) {
 
+    const hasFetched = useRef(false); //To initialize that the data has not been fetched
+
     const [data, setData] = useState(null);
 
     useEffect(() => {
+      // I noticed the code fetched the data twice so I added the code bellow to correct it.
+        if (hasFetched.current) return; // Prevent second fetch
+        hasFetched.current = true; // Set flag to true
+      // I noticed the code fetched the data twice so I added the code aboveto correct it.
+
+
     const fetchData = async () => {
       try {
         const response = await fetch('https://fakestoreapi.com/products');
         const data = await response.json();
         setData(data);
+        // console.log("FetchData: ", data)
       } catch (error) {
         console.error('Error fetching data:', error);
       }
@@ -75,9 +84,6 @@ function DataProvider({ children }) {
                 )
             );
         }
-
-
-
 
     function moveWishlistToCart() {
       setCartArray((prevArray) => [...prevArray, ...wishlistArray]);

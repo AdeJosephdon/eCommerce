@@ -95,7 +95,7 @@ useEffect(() => {
                 <Icon icon="hugeicons:ai-chat-02" width="24" height="24" />
 
                 <p className="message-text">
-                  Het there <br /> How can I help you today?
+                  Hey there <br /> How can I help you today?
                 </p>
             </div>
             

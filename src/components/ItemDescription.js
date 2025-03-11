@@ -7,7 +7,7 @@ import { Link, useParams } from 'react-router-dom';
 import PageStructure from './PageStructure';
 
 
-function ItemDescription(prop) {
+function ItemDescription() {
 
   const { data } = useContext(DataContext);
 

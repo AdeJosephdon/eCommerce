@@ -10,7 +10,11 @@ function Home(prop) {
   return (
 
     <PageStructure>
-      {prop.data ? <MainBody data = {prop.data}/> : <main className='loading'><h1>Loading...</h1></main> }
+      {/* {prop.data ?  */}
+      
+      <MainBody/> 
+      {/* // : <main className='loading'><h1>Loading...</h1></main>  */}
+      {/* } */}
     </PageStructure>  
 
   );

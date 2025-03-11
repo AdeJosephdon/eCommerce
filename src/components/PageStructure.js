@@ -1,18 +1,11 @@
-import { useContext } from 'react';
 import Header from './Header';
 import Footer from './Footer';
-import { DataContext } from "./DataContext";
 
 // import MainBody from './MainBody';
 
 
 function PageStructure({children}) {
 
-
-  const { data } = useContext(DataContext);
-
-
-  console.log(data)
 
 
   return (
@@ -44,6 +37,7 @@ function PageStructure({children}) {
 
     <div className='footer-container'>
       <Footer/>
+      <div className='bottom-copyright'> <a href='https://www.figma.com/design/noB6Ao9cDlRHCNbJiZgNWP/Full-E-Commerce-Website-UI-UX-Design-(Community)?node-id=1-3&p=f&t=10m0lgK9jcLG9kXW-0' target='_blank' rel='noreferrer'>Click here to view recreated Figma design</a></div>
       <div className='bottom-copyright'> &copy; Copyright Josephdon 2024. All right reserved</div>
     </div>
 

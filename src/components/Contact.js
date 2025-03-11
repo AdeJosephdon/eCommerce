@@ -41,7 +41,7 @@ function Contact() {
         <div>
           <p className="contact-icon-container"><span><Icon icon="ion:call-outline" width="24" height="24" className="contact-icon"/></span> <span>Call To Us</span></p>
           <p>We are available 24/7, 7 days a week.</p>
-          <p>Phone <span>+80-123-4567</span></p>
+          <p>Phone <span>+234-903-631-8666</span></p>
         </div>
 
         <hr/>
@@ -49,8 +49,8 @@ function Contact() {
         <div>
           <p className="contact-icon-container"><span><Icon icon="bytesize:mail" width="24" height="24" className="contact-icon"/></span> <span>Write To Us</span></p>
           <p>Fill out our form and we will contact you within 24 hours..</p>
-          <p>Emails: <a href="mailto:adegboyegajosephdon@gmail.com">customer@exclusive.com</a></p>
-          <p>Emails: <a href="mailto:jorliejat@gmail.com">support@exclusive.com</a></p>
+          <p>Email: <a href="mailto:adegboyegajosephdon@gmail.com">adegboyegajosephdon@gmail.com</a></p>
+          <p>Email: <a href="mailto:jorliejat@gmail.com">jorliejat@gmail.com</a></p>
         </div>
 
         </div>
@@ -67,7 +67,7 @@ function Contact() {
               value={name}
               onChange={(e) => setName(e.target.value)}
               required
-              className="contact-input"
+              className="contact-input contact-name-input"
             />
 
             <input
@@ -77,7 +77,7 @@ function Contact() {
               value={recipientEmail}
               onChange={(e) => setRecipientEmail(e.target.value)}
               required
-              className="contact-input"
+              className="contact-input contact-email-input"
             />
 
             <input
@@ -86,26 +86,22 @@ function Contact() {
               placeholder="Your Phone number"
               value={phone}
               onChange={(e) => setPhone(e.target.value)}
-              className="contact-input"
+              className="contact-input contact-text-input"
             />
 
+            
             <textarea
               type="text"
               id="body"
               placeholder="Your Message*"
               value={body}
               onChange={(e) => setBody(e.target.value)}
-              className="contact-textarea"
+              className="contact-textarea contact-textarea-input"
               required
             />
-            
-            <br /><br /><br/>
-
-          <div className="contact-button-container">
-            <button type="submit" className="contact-button">Send Message</button>
-          </div>
-
           </form>
+                      
+          <br/>
 
 
           <div className="contact-button-container">

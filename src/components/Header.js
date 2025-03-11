@@ -1,3 +1,4 @@
+import { useMatch } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import { useState, useContext } from "react";
@@ -6,13 +7,18 @@ import { DataContext } from "./DataContext";
 
 function Header() {
 
+  const matchHome = useMatch('/');
+  const matchContact = useMatch('/contact');
+  const matchAbout = useMatch('/about');
+  const matchSignup = useMatch('/signup');
+
   const [accountClicked, setAccountClicked] = useState(false);
   const { data, wishlistArray, cartArray } = useContext(DataContext);
   
   function accountButtonClicked() {
     setAccountClicked(prevAccount => !prevAccount)
   }
-  console.log(data)
+  // console.log(data)
   const [query, setQuery] = useState('')
 
   const filteredArray = filterFunction(query, data) || [];
@@ -35,6 +41,7 @@ const buttonsDisplayed = filteredArray.length > 0 ? (
   ))
 ) : null; 
                 
+const accountClickedStyles = { backgroundColor: "red", borderRadius: "50%", width: "40px", height:"40px" }
 
   return (
     <header className="header">
@@ -42,10 +49,10 @@ const buttonsDisplayed = filteredArray.length > 0 ? (
         <h1>Exclusive</h1>
 
         <nav className="header-navigation">
-                  <Link to="/" >Home</Link>  
-                  <Link to="/contact" >Contact</Link>  
-                  <Link to="/about" >About</Link>  
-                  <Link to="/signup" >Sign Up</Link>  
+                  <Link to="/"><div className={matchHome ? "linkUnderline" : ""}>Home</div></Link>  
+                  <Link to="/contact" ><div className={matchContact ? "linkUnderline" : ""}>Contact</div></Link>  
+                  <Link to="/about"><div className={matchAbout ? "linkUnderline" : ""}>About</div></Link>  
+                  <Link to="/signup"><div className={matchSignup ? "linkUnderline" : ""}>Sign Up</div></Link>  
         </nav>
 
         <div className="header-buttons">
@@ -73,7 +80,7 @@ const buttonsDisplayed = filteredArray.length > 0 ? (
           <button className="wishlist-button-number">
             <Link to="/wishlist" >
             {wishlistArray.length ? <p className="wishlist-number">{wishlistArray.length}</p> : ""}
-            <Icon icon="solar:heart-linear" width="24" height="24" />
+            <Icon icon="mingcute:heart-line" width="24" height="24" />
             </Link>
                   
           </button>
@@ -81,10 +88,10 @@ const buttonsDisplayed = filteredArray.length > 0 ? (
             <Link to="/cart">
             {cartArray.length ? <p className="wishlist-number">{cartArray.length}</p> : ""}
 
-              <Icon icon="famicons:cart-outline" width="24" height="24" />
+              <Icon icon="mdi:cart-outline" width="24" height="24" />
             </Link>
           </button>
-          <button onClick={accountButtonClicked}>
+          <button onClick={accountButtonClicked} style={accountClicked ? accountClickedStyles : null}>
                   <Icon icon="line-md:account" width="24" height="24" />
           </button>
 
