@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { DataContext } from "./DataContext";
-import ProductCard from './ProductCard'
+import { DataContext } from "../components/DataContext";
+import ProductCard from '../components/ProductCard'
 // import ApiData from './ApiData';
 import { Icon } from "@iconify/react";
 import { Link, useParams } from 'react-router-dom';
-import PageStructure from './PageStructure';
+import PageStructure from '../components/PageStructure';
 
 
 function ItemDescription() {

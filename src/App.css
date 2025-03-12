@@ -973,6 +973,7 @@ width: 470px;
   align-items: center;
   padding: 10px 0;
   width: 450px;
+  gap: 10px;
 }
 .cart-item-mini {
   display: flex;
@@ -991,7 +992,7 @@ width: 470px;
   align-items: center;
   padding: 10px 0;
   /* width: 500px; */
-  width: 100%;
+  width: 450px;
 }
 
 .items-bought{
@@ -1001,7 +1002,28 @@ width: 470px;
 .items-bought hr{
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: 450px;
+}
+.bank-cash-form {
+  width: 450px;
+  margin-bottom: 20px;
+}
+.bankspan {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bankspan div{
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 10px;
+}
+.cashspan{
+    display: flex;
+      justify-content: left;
+      align-items: center;
+      gap: 10px;
 }
 .coupon-form{
   height: 56px;
@@ -1206,6 +1228,8 @@ a {
 }
 .proceed-to-cart-button-container {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .proceed-to-cart-button {
   background-color: #DB4444;

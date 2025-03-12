@@ -1,10 +1,10 @@
 // import { useState, useRef } from "react";
 // import { Icon } from "@iconify/react";
-import WishlistCard from './WishlistCard';
+import WishlistCard from '../components/WishlistCard';
 // import ApiData from './ApiData';
-import PageStructure from './PageStructure';
+import PageStructure from '../components/PageStructure';
 import { useContext, useState } from "react";
-import { DataContext } from "./DataContext";
+import { DataContext } from "../components/DataContext";
 
 function Wishlist() {
 

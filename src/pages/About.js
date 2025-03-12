@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import PageStructure from "./PageStructure";
+import PageStructure from "../components/PageStructure";
 
 
 function About() {

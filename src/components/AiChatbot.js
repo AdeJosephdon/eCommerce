@@ -2,7 +2,6 @@ import { Icon } from "@iconify/react/dist/iconify.js";
 import { useEffect, useRef, useState } from "react";
 import ChatMessage from "./ChatMessage";
 import CompanyAndApiData from "./CompanyAndApiData"
-// import getChatFromMistral from "./AI"
 
 
 function AiChatbot({toggleAiChat}) {

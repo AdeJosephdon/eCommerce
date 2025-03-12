@@ -1,5 +1,5 @@
-import MainBody from './MainBody';
-import PageStructure from './PageStructure';
+import MainBody from '../components/MainBody';
+import PageStructure from '../components/PageStructure';
 
 
 function Home(prop) {

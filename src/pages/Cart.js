@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import CartItems from "./CartItems";
+import CartItems from "../components/CartItems";
 // import ApiData from './ApiData';
-import PageStructure from "./PageStructure";
+import PageStructure from "../components/PageStructure";
 import { useContext } from "react";
-import { DataContext } from "./DataContext";
+import { DataContext } from "../components/DataContext";
 
 
 function Cart() {
@@ -104,7 +104,7 @@ function Cart() {
           </div>
 
           <div className="proceed-to-cart-button-container">
-            <button className="proceed-to-cart-button">Process to checkout</button>
+            <Link to={"/billing"}><button className="proceed-to-cart-button">Process to checkout</button></Link>
           </div>
           
           </div>

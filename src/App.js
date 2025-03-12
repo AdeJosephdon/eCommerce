@@ -1,16 +1,16 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './App.css';
-import Home from './components/Home';
-import Contact from './components/Contact';
-import About from './components/About';
-import SignUp from './components/SignUp';
-import NotFoundPage from './components/NotFoundPage';
-import Billing from './components/Billing';
-import Wishlist from './components/Wishlist';
-import Cart from './components/Cart';
-import Account from './components/Account';
-import ItemDescription from './components/ItemDescription';
-import Login from './components/Login';
+import Home from './pages/Home';
+import Contact from './pages/Contact';
+import About from './pages/About';
+import SignUp from './pages/SignUp';
+import NotFoundPage from './pages/NotFoundPage';
+import Billing from './pages/Billing';
+import Wishlist from './pages/Wishlist';
+import Cart from './pages/Cart';
+import Account from './pages/Account';
+import ItemDescription from './pages/ItemDescription';
+import Login from './pages/Login';
 
 // import { config } from 'dotenv';
 // config(); 

@@ -1,27 +1,33 @@
-import ApiData from './ApiData';
-import BillingCartItem from './BillingCartItem';
+import ApiData from '../components/ApiData';
+import BillingCartItem from '../components/BillingCartItem';
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import PageStructure from './PageStructure';
+import PageStructure from "../components/PageStructure";
+import { useContext } from "react";
+import { DataContext } from "../components/DataContext";
 
 
 function Billing() {
+
+  const { cartArray  } = useContext(DataContext);
 
   function SignUp() {
     alert('You clicked me');
 }
 
-    console.log(ApiData);
+    console.log("cartArray: ", cartArray);
 
-const allBillingItems = ApiData.map((item) =>  
-      <BillingCartItem key={item.id} image={item.image} price ={item.price} name={item.title}/>
+const allBillingItems = cartArray.map((item) =>  
+      <BillingCartItem key={item.id} image={item.image} price ={item.price * item.quantity} name={item.title}/>
     );
 
-const pricesArray = ApiData.map((item) => item.price);
+const pricesArray = cartArray.map((item) => item.price * item.quantity);
 
 
 
 function sumPrices(arr) {
+
+  
   if (arr.length === 0) {
     return 0; 
   }
@@ -76,10 +82,10 @@ console.log(subtotal);
             <div className="billing-subtotal-text">
               Subtotal:
             </div>
-            <p><span>$</span> <span>{subtotal}</span> </p>
+            <p><span>$</span> <span>{subtotal.toFixed(2)}</span> </p>
           </div>
 
-          <hr />
+          <hr/>
 
           <div className="billing-subtotal">
             <div className="billing-subtotal-text">
@@ -94,22 +100,44 @@ console.log(subtotal);
             <div className="billing-subtotal-text">
               Total:
             </div>
-            <p><span>$</span> <span>{subtotal}</span> </p>
+            <p><span>$</span> <span>{subtotal.toFixed(2)}</span> </p>
           </div>
 
-          <form >
-            <div> <span>Bank</span>
-            <span >
-              <Icon icon="arcticons:bkash" width="28" height="28" />
-              <Icon icon="logos:visa" width="100" height="28" />
-              <Icon icon="logos:mastercard" width="100" height="28" />
-              <Icon icon="logos:visa" width="100" height="28" />
-            </span>
-            </div>
+          <form className='bank-cash-form'>
+                  <label  className='bankspan'>
+                    <div>
+                    <input
+                      type="radio"
+                      // value={}
+                      // checked={}
+                      // onChange={}
+                    />
+                        <span>Bank</span>
+                    </div>
+
+                        <span >
+                          <Icon icon="arcticons:bkash" width="28" height="28" />
+                          <Icon icon="logos:visa" width="60" height="28" />
+                          <Icon icon="logos:mastercard" width="60" height="28" />
+                          <Icon icon="logos:visa" width="60" height="28" />
+                        </span>
+                        
+                  </label>
+
 
             <br />
 
-            <div> <span>Cash on delivery</span> </div>
+                <label className='cashspan'>
+                  <input
+                    type="radio"
+                    // value={}
+                    // checked={}
+                    // onChange={}
+                  />
+                <span>Cash on delivery</span>
+
+                      
+                </label>
           </form>
 
           <form className="coupon-form">
