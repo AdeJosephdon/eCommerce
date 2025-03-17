@@ -101,7 +101,7 @@ function Contact() {
             />
           </form>
                       
-          <br/>
+          {/* <br/> */}
 
 
           <div className="contact-button-container">

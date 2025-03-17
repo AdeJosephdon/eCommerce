@@ -1,7 +1,7 @@
 import { useMatch } from 'react-router-dom';
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { useState, useContext } from "react";
+import { useState, useContext, useEffect } from "react";
 import { DataContext } from "./DataContext";
 
 
@@ -12,8 +12,10 @@ function Header() {
   const matchAbout = useMatch('/about');
   const matchSignup = useMatch('/signup');
 
+  const [navOpen, setNavOPen] = useState(false)
   const [accountClicked, setAccountClicked] = useState(false);
   const { data, wishlistArray, cartArray } = useContext(DataContext);
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   
   function accountButtonClicked() {
     setAccountClicked(prevAccount => !prevAccount)
@@ -43,11 +45,43 @@ const buttonsDisplayed = filteredArray.length > 0 ? (
                 
 const accountClickedStyles = { backgroundColor: "red", borderRadius: "50%", width: "40px", height:"40px" }
 
-  return (
+
+useEffect(() => {
+  function handleResize() {
+    setWindowWidth(window.innerWidth)
+
+  }
+  window.addEventListener('resize', handleResize);
+  handleResize()
+  
+  if (windowWidth > 767) {
+  setNavOPen(true)
+  } else {
+    setNavOPen(false)
+  }
+
+  return () => window.removeEventListener('resize', handleResize);
+
+}, [windowWidth])
+
+
+
+
+return (
     <header className="header">
 
         <h1>Exclusive</h1>
 
+        {
+          navOpen ?
+          "" :
+          <button onClick={() => setNavOPen(prevNav => !prevNav)}> <Icon icon="radix-icons:dropdown-menu" width="50" height="50" /></button>
+          
+        }
+
+        {navOpen ? 
+                <div className='header-div'>
+          {windowWidth  < 769 ? <button onClick={() => setNavOPen(prevNav => !prevNav)}> <Icon icon="mdi:close-outline" width="24" height="24" /></button> : ""}
         <nav className="header-navigation">
                   <Link to="/"><div className={matchHome ? "linkUnderline" : ""}>Home</div></Link>  
                   <Link to="/contact" ><div className={matchContact ? "linkUnderline" : ""}>Contact</div></Link>  
@@ -107,6 +141,12 @@ const accountClickedStyles = { backgroundColor: "red", borderRadius: "50%", widt
         <li classname="account-list"><a href="/signup" > <Icon icon="solar:logout-2-outline" width="24" height="24" /><span> Logout</span></a></li>
       </ul>
       }
+
+      </div>
+      :
+      ""
+        }
+
 
 
 

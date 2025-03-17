@@ -10,8 +10,8 @@ function DataProvider({ children }) {
 
     useEffect(() => {
       // I noticed the code fetched the data twice so I added the code bellow to correct it.
-        if (hasFetched.current) return; // Prevent second fetch
-        hasFetched.current = true; // Set flag to true
+        if (hasFetched.current) return; 
+        hasFetched.current = true; 
       // I noticed the code fetched the data twice so I added the code aboveto correct it.
 
 

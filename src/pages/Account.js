@@ -39,7 +39,7 @@ function Account() {
         >
           <div className="edit-profile-text">Edit Your Profile</div>
 
-            <div className="edit-profile-form">
+          <div className="edit-profile-form">
               <p>
                 <label for="firstName">First Name <span class="required-star">*</span></label>
                 <input id="firstName" type="text" name="firstName" class="account-input" placeholder="First Name" required />
@@ -61,7 +61,7 @@ function Account() {
               </p>
             </div>
 
-            <div className="password-inputs">
+          <div className="password-inputs">
               <label htmlFor="town">Password Changes <span className="required-star">*</span></label> 
               <input id="town" type="text" name="town" className="account-input" placeholder="Current Password" required/>
 
@@ -70,7 +70,7 @@ function Account() {
               <input id="email" type="email" name="email" className="account-input" placeholder="Confirm New Password" required/>
             </div>
 
-            <div className="account-buttons">
+          <div className="account-buttons">
               <button>Cancel</button>
               <button className="save-changes">Save Changes</button>
 

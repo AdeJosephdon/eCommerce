@@ -131,7 +131,7 @@ return (
 
 
           {aiChatOpen ?
-          <div className="floating-buttons">
+          <div className={aiChatOpen ? "floating-buttons remove-buttons" : "floating-buttons"}>
             <button onClick={toggleAiChat}><Icon icon="iconoir:cancel" width="24" height="24" /></button>
           </div>
           :
