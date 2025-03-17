@@ -1544,7 +1544,7 @@ a {
 .floating-buttons {
   position: fixed;
   bottom: 10px;
-  right: 70px;
+  right: 20px;
   display: flex;
   background-color: #F5F5F5;
   display: flex;
@@ -1729,6 +1729,10 @@ a {
   .top-text a {
     margin: 0 10px;
   }
+  .languages {
+    bottom: 5px;
+    right: 10px;
+  }
   /* Header */
   .header {
     padding: 0 10px;
@@ -1812,6 +1816,18 @@ a {
     flex-wrap: wrap;
     justify-content: center;
     gap: 40px;
+  }
+  .category {
+    width: 120px;
+    height: 105px;
+    border: 1px solid #ccc;
+  }
+
+  .category-colored {
+    width: 120px;
+    height: 105px;
+    background-color: #DB4444;
+    color: #FFFFFF;
   }
   /* Best selling */
   .best-selling-card-container {
@@ -2027,6 +2043,36 @@ a {
     }
     .billing-subtotal {
       width: 100%;
+    }
+    /* Individual Item description */
+    .actual-item-main-container {
+      margin: 20px 0;
+      padding: 0 10px;
+    }
+    .item-image-container {
+      width: 90vw;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 1fr;
+    }
+    .item-image-container img{
+      width: 90vw;
+      height: 40vh;
+    }
+
+    .item-image-container> :not(:nth-child(5)) {
+    display: none;
+    }
+
+    .item-image-container> :nth-child(5) {
+      grid-column: 1 / 2;
+      grid-row: 1 / 2;
+    }
+    .item-properties {
+      flex-direction: column;
+    }
+    .actual-item-container{
+      overflow-x: auto;
     }
     /* Account Page */
     .account-container {
