@@ -1,28 +1,29 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { DataContext } from "./DataContext";
 
+function AddToCart({ productId }) {
+  const { cartArray, addToCartArray, removeFromCartArray } =
+    useContext(DataContext);
 
-function AddToCart(prop) {
+  const productInCart = cartArray.some(
+    (item) => item.product._id === productId
+  );
 
-  const { cartArray, addToCartArray, removeFromCartArray } = useContext(DataContext);
-
-  const [productInCart, setProductInCart] = useState(cartArray.some((item) => item.id === prop.productObject.id));
-
-
-  function buttonClicked() {
+  function handleButtonClick() {
     if (productInCart) {
-      removeFromCartArray(prop.productObject.id);
-      setProductInCart((prevProduct) => !prevProduct);
+      removeFromCartArray(productId);
     } else {
-      addToCartArray(prop.productObject);
-      setProductInCart((prevProduct) => !prevProduct);
+      addToCartArray(productId);
     }
   }
 
-
   return (
-    <button className="add-to-cart" onClick={() => {buttonClicked()}}>
-          {productInCart ? <span className="remove-from-cart">Remove From Cart</span> : "Add To Cart" }
+    <button className="add-to-cart" onClick={handleButtonClick}>
+      {productInCart ? (
+        <span className="remove-from-cart">Remove From Cart</span>
+      ) : (
+        "Add To Cart"
+      )}
     </button>
   );
 }

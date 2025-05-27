@@ -1,64 +1,61 @@
 import { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import HeroSection from "./HeroSection";
 import { Icon } from "@iconify/react";
 import AiChatbot from "./AiChatbot";
 import TodayContainer from "./TodayContainer";
 import CategoriesContainer from "./CategoriesContainer";
 import BestSellingContainer from "./BestSellingContainer";
-import ExploreProductesContainer from "./ExploreProductesContainer"
-
+import ExploreProductesContainer from "./ExploreProductesContainer";
 
 function MainBody() {
+  const navigateCreateProduct = useNavigate();
 
   const scrollToView = useRef(null);
 
   const scrollFunction = () => {
-    scrollToView.current?.scrollIntoView({ behavior: 'smooth' }); 
+    scrollToView.current?.scrollIntoView({ behavior: "smooth" });
   };
 
-
   // Pop up and close  AI chat
-  const [aiChatOpen, setAiChatOpen] = useState(false)
+  const [aiChatOpen, setAiChatOpen] = useState(false);
 
   function toggleAiChat() {
-    setAiChatOpen(AiChatStatus => !AiChatStatus)
+    setAiChatOpen((AiChatStatus) => !AiChatStatus);
   }
 
-    console.log("Home rendered")
+  // console.log("Home rendered");
 
-
-return (
+  return (
     <div ref={scrollToView}>
+      <HeroSection />
 
-        <HeroSection />
+      {/* Today's sale */}
+      <TodayContainer />
 
-{/* Today's sale */}
-    <TodayContainer />
+      <main className="main-body">
+        <hr />
+        {/* Browse by category */}
+        <CategoriesContainer />
 
-
-
-<main className="main-body">
-          <hr />
-{/* Browse by category */}
-      <CategoriesContainer />
-        
         <hr />
 
-{/* Best Selling Products */}
-      <BestSellingContainer />
+        {/* Best Selling Products */}
+        <BestSellingContainer />
 
-{/* Today's sale */}
-        <div className="buyNowContainer"> 
-            <img src="/Frame 600.png" alt="buy now" />
+        {/* Today's sale */}
+        <div className="buyNowContainer">
+          <img src="/Frame 600.png" alt="buy now" />
         </div>
 
-{/* Explore Products Items */}
+        {/* Explore Products Items */}
         <ExploreProductesContainer />
 
-{/* New Arrival Items */}
+        {/* New Arrival Items */}
         <div className="explore-our-product-sales-container">
           <div className="today-text-container">
-            <p className="today-block"></p><h2>Featured</h2>
+            <p className="today-block"></p>
+            <h2>Featured</h2>
           </div>
 
           <div className="timer-container">
@@ -87,65 +84,81 @@ return (
               <a href="www.google.com">Shop Now</a>
             </div>
           </div>
-
-
         </div>
 
-{/* Services Section */}
-          <div className="services-outer-container"> 
-            <div className="service-container">
-              <div className="reach-button-outer">
-                <div className="reach-button-inner">
-                  <Icon icon="carbon:delivery" width="32" height="32" />
-                </div>
+        {/* Services Section */}
+        <div className="services-outer-container">
+          <div className="service-container">
+            <div className="reach-button-outer">
+              <div className="reach-button-inner">
+                <Icon icon="carbon:delivery" width="32" height="32" />
               </div>
-
-              <p className="service-number">FREE AND FAST DELIVERY</p>
-              <p className="service-description">Free delivery for all orders over $140</p>
             </div>
 
-            <div className="service-container">
-              <div className="reach-button-outer">
-                <div className="reach-button-inner">
-                  <Icon icon="streamline:customer-support-1" width="14" height="14" />
-                </div>
-              </div>
-
-              <p className="service-number">24/7 CUSTOMER SERVICE</p>
-              <p className="service-description">Friendly 24/7 customer support</p>
-            </div>
-
-            <div className="service-container">
-              <div className="reach-button-outer">
-                <div className="reach-button-inner">
-                  <Icon icon="tdesign:secured" width="24" height="24" />
-                </div>
-              </div>
-
-              <p className="service-number">MONEY BACK GUARANTEE</p>
-              <p className="service-description">We return money within 30</p>
-            </div>
-
+            <p className="service-number">FREE AND FAST DELIVERY</p>
+            <p className="service-description">
+              Free delivery for all orders over $140
+            </p>
           </div>
-</main>
 
+          <div className="service-container">
+            <div className="reach-button-outer">
+              <div className="reach-button-inner">
+                <Icon
+                  icon="streamline:customer-support-1"
+                  width="14"
+                  height="14"
+                />
+              </div>
+            </div>
 
-          {aiChatOpen ?
-          <div className={aiChatOpen ? "floating-buttons remove-buttons" : "floating-buttons"}>
-            <button onClick={toggleAiChat}><Icon icon="iconoir:cancel" width="24" height="24" /></button>
+            <p className="service-number">24/7 CUSTOMER SERVICE</p>
+            <p className="service-description">
+              Friendly 24/7 customer support
+            </p>
           </div>
-          :
-          <div className="floating-buttons">
-            <button onClick={toggleAiChat}><Icon icon="hugeicons:ai-chat-02" width="24" height="24" /></button>
-            <button onClick={scrollFunction}><Icon icon="fluent-mdl2:up" width="24" height="24" /></button>
-          </div>}
 
-          {
-            aiChatOpen ? <AiChatbot toggleAiChat={toggleAiChat}/> : ""
+          <div className="service-container">
+            <div className="reach-button-outer">
+              <div className="reach-button-inner">
+                <Icon icon="tdesign:secured" width="24" height="24" />
+              </div>
+            </div>
+
+            <p className="service-number">MONEY BACK GUARANTEE</p>
+            <p className="service-description">We return money within 30</p>
+          </div>
+        </div>
+      </main>
+
+      {aiChatOpen ? (
+        <div
+          className={
+            aiChatOpen ? "floating-buttons remove-buttons" : "floating-buttons"
           }
+        >
+          <button onClick={() => navigateCreateProduct("/add-product-page")}>
+            <Icon icon="akar-icons:edit" width="24" height="24" />
+          </button>
+          <button onClick={toggleAiChat}>
+            <Icon icon="iconoir:cancel" width="24" height="24" />
+          </button>
+        </div>
+      ) : (
+        <div className="floating-buttons">
+          <button onClick={() => navigateCreateProduct("/add-product-page")}>
+            <Icon icon="akar-icons:edit" width="24" height="24" />
+          </button>
+          <button onClick={toggleAiChat}>
+            <Icon icon="hugeicons:ai-chat-02" width="24" height="24" />
+          </button>
+          <button onClick={scrollFunction}>
+            <Icon icon="fluent-mdl2:up" width="24" height="24" />
+          </button>
+        </div>
+      )}
 
-          
-
+      {aiChatOpen ? <AiChatbot toggleAiChat={toggleAiChat} /> : ""}
     </div>
   );
 }

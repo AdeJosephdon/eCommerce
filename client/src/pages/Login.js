@@ -1,44 +1,87 @@
+import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import PageStructure from "../components/PageStructure";
-
-
+import { DataContext } from "../components/DataContext";
 
 function Login() {
+  const navigateHome = useNavigate();
+
+  const { auth } = useContext(DataContext);
+
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const loginUser = async () => {
+    const user = {
+      email: email,
+      password: password,
+    };
+
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+          // Add auth token or cookies if required
+        },
+        body: JSON.stringify(user),
+      });
+
+      const data = await response.json();
+      console.log("Server response:", data);
+
+      if (data.success) {
+        window.location.href = "/home";
+        console.log("auth", auth);
+      }
+    } catch (error) {
+      console.error("Error posting product:", error);
+    }
+  };
 
   return (
-
     <PageStructure>
       <main className="sign-up-container">
         {/* <div > */}
-          <img src="/dl.beatsnoop 1.png" alt="Sign Up" />
+        <img src="/dl.beatsnoop 1.png" alt="Sign Up" />
         {/* </div> */}
 
-          <div className="create-an-account">
+        <div className="create-an-account">
           <h1>Log in to Exclusive</h1>
           <p>Enter your details below</p>
 
           <form>
+            <input
+              id="email"
+              type="email"
+              name="email"
+              onChange={(e) => setEmail(e.target.value)}
+              value={email}
+              placeholder="Email"
+              className="sign-up-form-input"
+            />
 
-            <input id="email" type="email" name="email" placeholder="Email or Phone Number" className="sign-up-form-input"/>
-
-            <input id="password" type="password" name="password" placeholder="Password" className="sign-up-form-input"/>
-
+            <input
+              id="password"
+              type="password"
+              name="password"
+              onChange={(e) => setPassword(e.target.value)}
+              value={password}
+              placeholder="Password"
+              className="sign-up-form-input"
+            />
           </form>
 
-
           <div className="login-buttons">
-          <button className="login-button">Log In</button>
-          <button className="forgot-password-button">Forget Password?</button>
+            <button className="login-button" onClick={() => loginUser()}>
+              Log In
+            </button>
+            <button className="forgot-password-button">Forget Password?</button>
           </div>
-        </div> 
-
-        
-
+        </div>
       </main>
     </PageStructure>
-
-
-
-
   );
 }
 
