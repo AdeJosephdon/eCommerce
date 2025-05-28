@@ -18,9 +18,20 @@ dotenv.config();
 
 connectDB();
 
+const allowedOrigins = [
+  "http://localhost:3000", // dev
+  "https://ecommerce-bvsy.onrender.com", // production
+];
+
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: function (origin, callback) {
+      if (!origin || allowedOrigins.includes(origin)) {
+        callback(null, true);
+      } else {
+        callback(new Error("Not allowed by CORS"));
+      }
+    },
     credentials: true,
   })
 );
