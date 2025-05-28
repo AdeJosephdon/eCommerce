@@ -71,7 +71,7 @@ function AiChatbot({ toggleAiChat }) {
 
     try {
       const response = await fetch(
-        process.env.REACT_APP_API_URL,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${process.env.REACT_APP_GEMINI_API_KEY}`,
         requestOptions
       );
       const data = await response.json();
