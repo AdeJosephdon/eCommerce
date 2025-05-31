@@ -28,7 +28,7 @@ const ProductCard = memo(
     const fetchRating = async () => {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_BACKEND_URL}/api/products/api/rating/stats/${id}`
+          `${process.env.REACT_APP_BACKEND_URL}/api/rating/stats/${id}`
         );
         const data = await response.json();
         // console.log("Data: ", data);

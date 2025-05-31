@@ -23,7 +23,7 @@ function WishlistCard(prop) {
     const fetchData = async () => {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_BACKEND_URL}/api/products/api/rating/stats/${prop.id}`
+          `${process.env.REACT_APP_BACKEND_URL}/api/rating/stats/${prop.id}`
         );
         const data = await response.json();
         // console.log("Data: ", data);
