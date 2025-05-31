@@ -25,7 +25,9 @@ function DataProvider({ children }) {
 
     const fetchData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/products");
+        const response = await fetch(
+          `${process.env.REACT_APP_BACKEND_URL}/api/products`
+        );
         const result = await response.json();
         // console.log("📦 Products Data:", result);
         setData(result.data || []);
@@ -41,7 +43,7 @@ function DataProvider({ children }) {
     const fetchAuth = async () => {
       try {
         const response = await fetch(
-          "http://localhost:5000/api/auth/verify-user",
+          `${process.env.REACT_APP_BACKEND_URL}/api/auth/verify-user`,
           {
             method: "GET",
             credentials: "include", // Required to send cookies
@@ -80,10 +82,13 @@ function DataProvider({ children }) {
   useEffect(() => {
     const fetchUserData = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/user/data", {
-          method: "GET",
-          credentials: "include",
-        });
+        const response = await fetch(
+          `${process.env.REACT_APP_BACKEND_URL}/api/user/data`,
+          {
+            method: "GET",
+            credentials: "include",
+          }
+        );
 
         const result = await response.json();
         // console.log("👤 User Data:", result);
@@ -124,7 +129,7 @@ function DataProvider({ children }) {
   const fetchWishlistArray = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/wishlist/get-user-wishlist",
+        `${process.env.REACT_APP_BACKEND_URL}/api/wishlist/get-user-wishlist`,
         {
           method: "GET",
           credentials: "include", // Required to send cookies
@@ -161,7 +166,7 @@ function DataProvider({ children }) {
     // );
     try {
       const response = await fetch(
-        "http://localhost:5000/api/wishlist/add-to-wishlist",
+        `${process.env.REACT_APP_BACKEND_URL}/api/wishlist/add-to-wishlist`,
         {
           method: "POST",
           credentials: "include",
@@ -194,7 +199,7 @@ function DataProvider({ children }) {
     // );
     try {
       const response = await fetch(
-        "http://localhost:5000/api/wishlist/remove-from-wishlist",
+        `${process.env.REACT_APP_BACKEND_URL}/api/wishlist/remove-from-wishlist`,
         {
           method: "POST",
           credentials: "include",
@@ -225,10 +230,13 @@ function DataProvider({ children }) {
 
   const fetchCartArray = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/cart", {
-        method: "GET",
-        credentials: "include", // Required to send cookies
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/api/cart`,
+        {
+          method: "GET",
+          credentials: "include", // Required to send cookies
+        }
+      );
       const result = await response.json();
       // console.log("📦 cart Data:", result);
       // ;
@@ -260,7 +268,7 @@ function DataProvider({ children }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/cart/add-to-cart",
+        `${process.env.REACT_APP_BACKEND_URL}/api/cart/add-to-cart`,
         {
           method: "POST",
           credentials: "include",
@@ -291,7 +299,7 @@ function DataProvider({ children }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/cart/delete-cart-product",
+        `${process.env.REACT_APP_BACKEND_URL}/api/cart/delete-cart-product`,
         {
           method: "POST",
           credentials: "include",
@@ -318,7 +326,7 @@ function DataProvider({ children }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/cart/add-to-cart",
+        `${process.env.REACT_APP_BACKEND_URL}/api/cart/add-to-cart`,
         {
           method: "POST",
           credentials: "include",
@@ -345,7 +353,7 @@ function DataProvider({ children }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/cart/reduce-cart-product-quantity",
+        `${process.env.REACT_APP_BACKEND_URL}/api/cart/reduce-cart-product-quantity`,
         {
           method: "POST",
           credentials: "include",
@@ -380,7 +388,7 @@ function DataProvider({ children }) {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/cart/add-multiple-to-cart",
+        `${process.env.REACT_APP_BACKEND_URL}/api/cart/add-multiple-to-cart`,
         {
           method: "POST",
           credentials: "include",
@@ -406,7 +414,7 @@ function DataProvider({ children }) {
   const WishlistProductsToCart = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/wishlist/delete-all-wishlist-products",
+        `${process.env.REACT_APP_BACKEND_URL}/api/wishlist/delete-all-wishlist-products`,
         {
           method: "POST",
           credentials: "include",
@@ -434,7 +442,7 @@ function DataProvider({ children }) {
   const deleteAllCartProducts = async () => {
     try {
       const response = await fetch(
-        "http://localhost:5000/api/cart/delete-all-cart-products",
+        `${process.env.REACT_APP_BACKEND_URL}/api/cart/delete-all-cart-products`,
         {
           method: "POST",
           credentials: "include",

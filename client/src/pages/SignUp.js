@@ -16,15 +16,18 @@ function SignUp() {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/api/auth/register", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-          // Add auth token or cookies if required
-        },
-        body: JSON.stringify(user),
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/api/auth/register`,
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+            // Add auth token or cookies if required
+          },
+          body: JSON.stringify(user),
+        }
+      );
 
       const data = await response.json();
       if (data.success) {

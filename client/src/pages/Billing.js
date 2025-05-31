@@ -54,7 +54,7 @@ function Billing() {
     const stripe = await loadStripe(stripeKey);
 
     const response = await fetch(
-      "http://localhost:5000/api/cart/create-checkout-session",
+      `${process.env.REACT_APP_BACKEND_URL}/api/cart/create-checkout-session`,
       {
         method: "POST",
         credentials: "include",

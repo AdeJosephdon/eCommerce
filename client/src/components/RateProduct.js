@@ -31,14 +31,17 @@ function RateProduct(prop) {
     };
 
     try {
-      const response = await fetch("http://localhost:5000/api/rating/rate", {
-        method: "POST",
-        credentials: "include",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(ratingObject),
-      });
+      const response = await fetch(
+        `${process.env.REACT_APP_BACKEND_URL}/api/rating/rate`,
+        {
+          method: "POST",
+          credentials: "include",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(ratingObject),
+        }
+      );
 
       const data = await response.json();
 

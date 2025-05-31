@@ -45,7 +45,7 @@ function Account() {
 
       try {
         const response = await fetch(
-          "http://localhost:5000/api/auth/send-reset-otp",
+          `${process.env.REACT_APP_BACKEND_URL}/api/auth/send-reset-otp`,
           {
             method: "POST",
             credentials: "include",
@@ -79,7 +79,7 @@ function Account() {
 
       try {
         const response = await fetch(
-          "http://localhost:5000/api/auth/register",
+          `${process.env.REACT_APP_BACKEND_URL}/api/auth/register`,
           {
             method: "POST",
             credentials: "include",
@@ -161,7 +161,7 @@ function Account() {
 
       try {
         const response = await fetch(
-          "http://localhost:5000/api/auth/reset-password",
+          `${process.env.REACT_APP_BACKEND_URL}/api/auth/reset-password`,
           {
             method: "POST",
             credentials: "include",
@@ -198,7 +198,7 @@ function Account() {
 
       try {
         const response = await fetch(
-          "http://localhost:5000/api/auth/register",
+          `${process.env.REACT_APP_BACKEND_URL}/api/auth/register`,
           {
             method: "POST",
             credentials: "include",
