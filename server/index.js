@@ -20,7 +20,7 @@ connectDB();
 
 const allowedOrigins = [
   "http://localhost:3000", // dev
-  "https://ecommerce-bvsy.onrender.com", // production
+  "https://e-commerce-six-tau-65.vercel.app/", // production
 ];
 
 app.use(
