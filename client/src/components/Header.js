@@ -37,7 +37,7 @@ function Header() {
     if (!query) {
       return "";
     }
-    return data.filter((item) => item.title.includes(query));
+    return data.filter((item) => item.title.toLowerCase().includes(query.toLowerCase()));
   }
 
   const buttonsDisplayed =
