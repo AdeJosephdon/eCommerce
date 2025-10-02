@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import PageStructure from "../components/PageStructure";
 import { DataContext } from "../components/DataContext";
+import { set } from "mongoose";
 
 function Login() {
   const navigateHome = useNavigate();
@@ -11,7 +12,17 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const [loading, setLoading] = useState(false);
+
   const loginUser = async () => {
+    setLoading(true);
+    if (!email || !password) {
+      setErrorMessage("Please fill in all fields.");
+      setLoading(false);
+      return;
+    }
     const user = {
       email: email,
       password: password,
@@ -36,11 +47,15 @@ function Login() {
 
       if (data.success) {
         window.location.href = "/home";
+        setLoading(false);
         console.log("auth", auth);
       }
     } catch (error) {
       console.error("Error posting product:", error);
+      setLoading(false);
+      setErrorMessage("Login failed. Please try again.", error.message);
     }
+    setLoading(false);
   };
 
   return (
@@ -55,6 +70,7 @@ function Login() {
           <p>Enter your details below</p>
 
           <form>
+            {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
             <input
               id="email"
               type="email"
@@ -77,8 +93,12 @@ function Login() {
           </form>
 
           <div className="login-buttons">
-            <button className="login-button" onClick={() => loginUser()}>
-              Log In
+            <button
+              className="login-button"
+              onClick={() => loginUser()}
+              disabled={loading}
+            >
+              {loading ? "loading..." : "Log In"}
             </button>
             <button className="forgot-password-button">Forget Password?</button>
           </div>
