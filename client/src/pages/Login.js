@@ -1,12 +1,8 @@
 import { useState, useContext } from "react";
-// import { useNavigate } from "react-router-dom";
 import PageStructure from "../components/PageStructure";
 import { DataContext } from "../components/DataContext";
-// import { set } from "mongoose";
 
 function Login() {
-  // const navigateHome = useNavigate();
-
   const { auth } = useContext(DataContext);
 
   const [email, setEmail] = useState("");
@@ -49,6 +45,9 @@ function Login() {
         window.location.href = "/home";
         setLoading(false);
         console.log("auth", auth);
+      } else {
+        setErrorMessage(data.message || "Login failed. Please try again.");
+        setLoading(false);
       }
     } catch (error) {
       console.error("Error posting product:", error);
