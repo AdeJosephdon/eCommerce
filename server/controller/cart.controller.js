@@ -224,8 +224,9 @@ export const cartCheckout = async (req, res) => {
       payment_method_types: ["card"],
       line_items: lineItems,
       mode: "payment",
-      success_url: "http://localhost:3000/successful-payment-page",
-      cancel_url: "http://localhost:3000/billing",
+      success_url:
+        "https://e-commerce-six-tau-65.vercel.app/successful-payment-page",
+      cancel_url: "https://e-commerce-six-tau-65.vercel.app/billing",
     });
 
     sendMail(products, email);
