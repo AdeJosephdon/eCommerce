@@ -1,11 +1,11 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import PageStructure from "../components/PageStructure";
 import { DataContext } from "../components/DataContext";
-import { set } from "mongoose";
+// import { set } from "mongoose";
 
 function Login() {
-  const navigateHome = useNavigate();
+  // const navigateHome = useNavigate();
 
   const { auth } = useContext(DataContext);
 
