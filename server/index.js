@@ -20,7 +20,7 @@ connectDB();
 
 const allowedOrigins = [
   "http://localhost:3000", // dev
-  "e-commerce-six-tau-65.vercel.app", // production
+  "https://e-commerce-six-tau-65.vercel.app", // production
 ];
 
 app.use(
