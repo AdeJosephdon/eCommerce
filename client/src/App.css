@@ -101,6 +101,7 @@ header {
 }
 .header-account-list li a {
   text-decoration: none;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   color: #ffffff;
   display: flex;
   justify-content: left;
@@ -602,6 +603,7 @@ hr {
   padding: 10px 65px;
   margin: 60px 0;
 }
+
 .error-container button a {
   color: #ffffff;
   text-decoration: none;

@@ -70,6 +70,10 @@ function Login() {
 
           <form>
             {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
+            <p>
+              Register/Sign Up, or use: Email: adejosephdon@gmail.com ;
+              Password: Joseph123
+            </p>
             <input
               id="email"
               type="email"
