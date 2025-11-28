@@ -412,7 +412,7 @@ function Account() {
                     />
                   ))}
 
-                <button>Submit</button>
+                <button aria-label="submit account form">Submit</button>
               </form>
             </div>
           ) : (

@@ -17,7 +17,7 @@ function Footer() {
                 placeholder="Enter your email" 
                 className="footer-input"
               />
-              <button type="submit" >
+              <button type="submit" aria-label="send email for subscribe">
                   <Icon icon="material-symbols-light:send-outline" width="32" height="32" />
               </button>
             </div>
@@ -60,7 +60,7 @@ function Footer() {
         <h2>Download App</h2>
         <small>Save $3 with App New User Only</small>
 
-        <img src="/Frame 719.png" alt="Get Application"/>
+        <img src="/Frame 719.webp" alt="Get Application"/>
 
         <div className="socials-icons">
           <a href="www.facebook.com">  

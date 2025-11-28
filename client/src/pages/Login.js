@@ -61,7 +61,7 @@ function Login() {
     <PageStructure>
       <main className="sign-up-container">
         {/* <div > */}
-        <img src="/dl.beatsnoop 1.png" alt="Sign Up" />
+        <img src="/dl.beatsnoop 1.webp" alt="Sign Up" />
         {/* </div> */}
 
         <div className="create-an-account">

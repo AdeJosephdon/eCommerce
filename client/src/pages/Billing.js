@@ -3,9 +3,10 @@ import BillingCartItem from "../components/BillingCartItem";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import PageStructure from "../components/PageStructure";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { DataContext } from "../components/DataContext";
 import { loadStripe } from "@stripe/stripe-js";
+
 
 function Billing() {
   const { cartArray, deleteAllCartProducts, currentUser } =
@@ -27,6 +28,13 @@ function Billing() {
   const pricesArray = cartArray.map(
     (item) => item.product.price * item.quantity
   );
+
+    useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://js.stripe.com/v3";
+    script.async = true;
+    document.body.appendChild(script);
+  }, []);
 
   function sumPrices(arr) {
     if (arr.length === 0) {

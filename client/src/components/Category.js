@@ -20,10 +20,10 @@ function Category(prop) {
   return (
     <>
     {
-      prop.currentSection === prop.category ? <button className="category-colored" onClick={() => prop.wasClicked(prop.category)}>
+      prop.currentSection === prop.category ? <button className="category-colored" onClick={() => prop.wasClicked(prop.category)} aria-label={`select category ${prop.category}`}>
       {icon()}
       <div className="category-name">{prop.category}</div> </button> : 
-      <button className="category" onClick={() => prop.wasClicked(prop.category)}>
+      <button className="category" onClick={() => prop.wasClicked(prop.category)} aria-label={`select category ${prop.category}`}>
       {icon()}
       <div className="category-name">{prop.category}</div>
 

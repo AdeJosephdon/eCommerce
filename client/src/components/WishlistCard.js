@@ -110,12 +110,13 @@ function WishlistCard(prop) {
           <button
             onClick={() => removeFromWishlistArray(prop.id)}
             disabled={wishlistLoading}
+            aria-label="remove from wishlist"
           >
             <Icon icon="fluent-mdl2:delete" width="24" height="24" />
           </button>
         ) : (
           <Link to={`/itemdescription/${prop.id}`}>
-            <button>
+            <button aria-label={`navigate to ${prop.title}`}>
               <Icon icon="lets-icons:eye-light" width="24" height="24" />
             </button>
           </Link>

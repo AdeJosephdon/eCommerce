@@ -103,14 +103,14 @@ function CategoriesContainer() {
         </div>
 
         <div className="product-button-container">
-          <button onClick={handleScrollLeft}>
+          <button onClick={handleScrollLeft} aria-label="scroll categories left">
             <Icon
               icon="bitcoin-icons:arrow-left-filled"
               width="24"
               height="24"
             />
           </button>
-          <button onClick={handleScrollRight}>
+          <button onClick={handleScrollRight} aria-label="scroll categories right">
             <Icon
               icon="bitcoin-icons:arrow-right-filled"
               width="24"

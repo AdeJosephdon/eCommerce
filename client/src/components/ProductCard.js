@@ -149,7 +149,7 @@ const ProductCard = memo(
       >
         <span className="discount">-40%</span>
         <div className="product-floating-buttons">
-          <button onClick={() => wishlistButtonClicked()}>
+          <button onClick={() => wishlistButtonClicked()} aria-label="toggle wishlist">
             {productInWishlist ? (
               <Icon icon="flat-color-icons:like" width="24" height="24" />
             ) : (
@@ -158,7 +158,7 @@ const ProductCard = memo(
           </button>
 
           <Link to={`/itemdescription/${id}`}>
-            <button>
+            <button aria-label="view product details">
               <Icon icon="lets-icons:eye-light" width="24" height="24" />
             </button>
           </Link>

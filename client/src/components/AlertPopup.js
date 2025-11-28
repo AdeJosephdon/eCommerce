@@ -15,7 +15,7 @@ function AlertPopup({ isOpen, onClose, children, type }) {
       >
         <h1 className="popup-content-heading">
           <div>Attention!!!</div>
-          <button className="popup-close" onClick={onClose}>
+          <button className="popup-close" onClick={onClose} aria-label="close alert popup">
             <Icon
               icon="material-symbols:close-rounded"
               width="35"

@@ -128,7 +128,7 @@ function Header() {
       {navOpen ? (
         ""
       ) : (
-        <button onClick={() => setNavOPen((prevNav) => !prevNav)}>
+        <button onClick={() => setNavOPen((prevNav) => !prevNav)} aria-label="close navigation">
           {" "}
           <Icon icon="radix-icons:dropdown-menu" width="50" height="50" />
         </button>
@@ -137,7 +137,7 @@ function Header() {
       {navOpen ? (
         <div className="header-div">
           {windowWidth < 769 ? (
-            <button onClick={() => setNavOPen((prevNav) => !prevNav)}>
+            <button onClick={() => setNavOPen((prevNav) => !prevNav)} aria-label="close navigation">
               {" "}
               <Icon icon="mdi:close-outline" width="24" height="24" />
             </button>
@@ -169,7 +169,7 @@ function Header() {
                   onChange={(e) => setQuery(e.target.value)}
                   className="header-input"
                 />
-                <button type="submit">
+                <button type="submit" aria-label="submit">
                   <Icon
                     icon="heroicons:magnifying-glass"
                     width="24"

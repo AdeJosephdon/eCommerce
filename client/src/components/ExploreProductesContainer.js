@@ -79,7 +79,7 @@ function ExploreProductesContainer() {
       </div>
 
       <div className="explore-our-product-button">
-        <button onClick={() => viewAllExplore()}>
+        <button onClick={() => viewAllExplore()} aria-label="view all products or collapse view">
           {exploreProducts ? "View All Products" : "Collapse View"}
         </button>
       </div>

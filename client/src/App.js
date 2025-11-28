@@ -21,6 +21,9 @@ import SuccessfulPaymentPage from "./pages/SuccessfulPaymentPage";
 function App() {
   const { auth } = useContext(DataContext);
 
+  // const location = useLocation();
+
+
   // console.log("App rendered")
 
   const router = createBrowserRouter([
@@ -42,6 +45,8 @@ function App() {
     { path: "/add-product-page", element: <AddProductPage /> },
     { path: "/successful-payment-page", element: <SuccessfulPaymentPage /> },
   ]);
+
+  
 
   return (
     <div className="App">

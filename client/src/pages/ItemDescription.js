@@ -171,6 +171,7 @@ function ItemDescription() {
                         productArrayIndex !== -1 &&
                         cartArray[productArrayIndex].quantity === 1)
                     }
+                    aria-label="reduce item quantity"
                   >
                     -
                   </button>
@@ -179,7 +180,7 @@ function ItemDescription() {
                       ? cartArray[productArrayIndex].quantity
                       : 0}
                   </span>
-                  <button onClick={() => addToCartArray(productId)}>+</button>
+                  <button onClick={() => addToCartArray(productId)} aria-label="increase item quantity">+</button>
                 </div>
 
                 <button
@@ -192,6 +193,7 @@ function ItemDescription() {
                 <button
                   className="item-like-button"
                   onClick={() => wishlistButtonClicked()}
+                  aria-label="like/unlike product"
                 >
                   {productInWishlist ? (
                     <Icon icon="flat-color-icons:like" width="24" height="24" />

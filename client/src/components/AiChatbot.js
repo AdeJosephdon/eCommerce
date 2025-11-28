@@ -104,7 +104,7 @@ function AiChatbot({ toggleAiChat }) {
           <h2 className="logo-text">Exclusivebot</h2>
         </div>
 
-        <button className="material-symbol-rounded" onClick={toggleAiChat}>
+        <button className="material-symbol-rounded" onClick={toggleAiChat} aria-label="toggle ai chat open/close">
           <Icon icon="mingcute:down-line" width="24" height="24" />
         </button>
       </div>
@@ -132,7 +132,7 @@ function AiChatbot({ toggleAiChat }) {
             placeholder="Message..."
             required
           />
-          <button>
+          <button aria-label="send chat">
             <Icon icon="fluent-mdl2:up" width="24" height="24" />
           </button>
         </form>

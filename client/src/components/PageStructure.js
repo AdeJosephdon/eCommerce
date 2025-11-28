@@ -5,9 +5,6 @@ import Footer from './Footer';
 
 
 function PageStructure({children}) {
-
-
-
   return (
     <div className="home">
       <div className='top-text'>

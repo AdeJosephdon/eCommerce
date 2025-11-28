@@ -42,7 +42,7 @@ function SignUp() {
     <PageStructure>
       <main className="sign-up-container">
         {/* <div > */}
-        <img src="/dl.beatsnoop 1.png" alt="Sign Up" />
+        <img src="/dl.beatsnoop 1.webp" alt="Sign Up" />
         {/* </div> */}
 
         <div className="create-an-account">
@@ -85,6 +85,7 @@ function SignUp() {
             <button
               className="create-account-button"
               onClick={() => registerUser()}
+              
             >
               Create Account
             </button>

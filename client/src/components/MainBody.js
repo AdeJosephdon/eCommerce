@@ -137,22 +137,22 @@ function MainBody() {
             aiChatOpen ? "floating-buttons remove-buttons" : "floating-buttons"
           }
         >
-          <button onClick={() => navigateCreateProduct("/add-product-page")}>
+          <button onClick={() => navigateCreateProduct("/add-product-page")} aria-label="add a product">
             <Icon icon="akar-icons:edit" width="24" height="24" />
           </button>
-          <button onClick={toggleAiChat}>
+          <button onClick={toggleAiChat} aria-label="toggle AI chat">
             <Icon icon="iconoir:cancel" width="24" height="24" />
           </button>
         </div>
       ) : (
         <div className="floating-buttons">
-          <button onClick={() => navigateCreateProduct("/add-product-page")}>
+          <button onClick={() => navigateCreateProduct("/add-product-page")} aria-label="add a product">
             <Icon icon="akar-icons:edit" width="24" height="24" />
           </button>
-          <button onClick={toggleAiChat}>
+          <button onClick={toggleAiChat} aria-label="toggle AI chat">
             <Icon icon="hugeicons:ai-chat-02" width="24" height="24" />
           </button>
-          <button onClick={scrollFunction}>
+          <button onClick={scrollFunction} aria-label="scroll to top">
             <Icon icon="fluent-mdl2:up" width="24" height="24" />
           </button>
         </div>

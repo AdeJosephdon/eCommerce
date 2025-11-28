@@ -30,7 +30,7 @@ function About() {
           </div>
 
           <div className="reach-container"> 
-            <button className="reach-button">
+            <button className="reach-button" aria-label="reach button">
               <div className="reach-button-outer">
                 <div className="reach-button-inner">
                   <Icon icon="circum:shop" width="24" height="24" />
@@ -41,7 +41,7 @@ function About() {
               <p className="reach-description">Sellers active on our site</p>
             </button>
 
-            <button className="reach-button">
+            <button className="reach-button" aria-label="reach button">
               <div className="reach-button-outer">
                 <div className="reach-button-inner">
                   <Icon icon="solar:dollar-linear" width="24" height="24" />
@@ -52,7 +52,7 @@ function About() {
               <p className="reach-description">Monthly Product Sale</p>
             </button>
 
-            <button className="reach-button">
+            <button className="reach-button" aria-label="reach button">
               <div className="reach-button-outer">
                 <div className="reach-button-inner">
                   <Icon icon="fluent:shopping-bag-20-regular" width="20" height="20" />
@@ -63,7 +63,7 @@ function About() {
               <p className="reach-description">Customer active in our site</p>
             </button>
 
-            <button className="reach-button">
+            <button className="reach-button" aria-label="reach button">
               <div className="reach-button-outer">
                 <div className="reach-button-inner">
                   <Icon icon="tabler:moneybag" width="24" height="24" />

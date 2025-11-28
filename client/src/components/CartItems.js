@@ -33,6 +33,7 @@ function Cart(prop) {
               <button
                 className="remove-cart-item"
                 onClick={() => removeFromCartArray(prop.id)}
+                aria-label="remove cart item"
               >
                 x
               </button>
@@ -55,10 +56,10 @@ function Cart(prop) {
         <p class="cart-quantity">
           <p>{prop.quantity}</p>
           <div className="cart-quantity-change-buttons">
-            <button onClick={() => increaseQuantity(prop.id)}>
+            <button onClick={() => increaseQuantity(prop.id)} aria-label="increase quantity">
               <Icon icon="lsicon:up-outline" width="16" height="16" />
             </button>
-            <button onClick={() => decreaseQuantity(prop.id)}>
+            <button onClick={() => decreaseQuantity(prop.id)} aria-label="decrease quantity">
               <Icon icon="lsicon:down-outline" width="16" height="16" />
             </button>
           </div>
