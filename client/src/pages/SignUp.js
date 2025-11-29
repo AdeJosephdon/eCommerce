@@ -23,7 +23,6 @@ function SignUp() {
           credentials: "include",
           headers: {
             "Content-Type": "application/json",
-            // Add auth token or cookies if required
           },
           body: JSON.stringify(user),
         }

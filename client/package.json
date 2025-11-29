@@ -23,7 +23,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "analyze": "npx cra-bundle-analyzer"
   },
   "eslintConfig": {
     "extends": [
@@ -45,6 +46,7 @@
   },
   "devDependencies": {
     "@iconify/react": "^5.1.0",
+    "cra-bundle-analyzer": "^0.1.1",
     "vite": "^6.1.0"
   }
 }

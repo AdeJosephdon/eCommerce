@@ -1,12 +1,12 @@
 import { useMatch } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 import { useState, useContext, useEffect } from "react";
 import { DataContext } from "./DataContext.js";
 
 function Header() {
-  const navigateHome = useNavigate();
+  // const navigateHome = useNavigate();
 
   const matchHome = useMatch("/home");
   const matchContact = useMatch("/contact");
@@ -24,6 +24,11 @@ function Header() {
     setCurrentUser,
   } = useContext(DataContext);
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+
+  const goHome = () => {
+  window.location.href = "/";
+};
 
   function accountButtonClicked() {
     setAccountClicked((prevAccount) => !prevAccount);
@@ -111,7 +116,7 @@ function Header() {
 
         setAccountClicked((prevAccount) => !prevAccount);
 
-        navigateHome("/");
+        goHome();
         // console.log("✅ Authenticated Auth:", auth);
       } else {
         console.log("🚫 Not logged out");

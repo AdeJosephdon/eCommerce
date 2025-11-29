@@ -3,7 +3,7 @@ import BillingCartItem from "../components/BillingCartItem";
 import { Link } from "react-router-dom";
 import { Icon } from "@iconify/react";
 import PageStructure from "../components/PageStructure";
-import { useContext, useEffect } from "react";
+import { useContext} from "react";
 import { DataContext } from "../components/DataContext";
 import { loadStripe } from "@stripe/stripe-js";
 
@@ -29,12 +29,6 @@ function Billing() {
     (item) => item.product.price * item.quantity
   );
 
-    useEffect(() => {
-    const script = document.createElement("script");
-    script.src = "https://js.stripe.com/v3";
-    script.async = true;
-    document.body.appendChild(script);
-  }, []);
 
   function sumPrices(arr) {
     if (arr.length === 0) {

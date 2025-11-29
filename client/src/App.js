@@ -1,37 +1,32 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import Home from "./pages/Home";
-import Contact from "./pages/Contact";
-import About from "./pages/About";
-import SignUp from "./pages/SignUp";
-import NotFoundPage from "./pages/NotFoundPage";
-import Billing from "./pages/Billing";
-import Wishlist from "./pages/Wishlist";
-import Cart from "./pages/Cart";
-import Account from "./pages/Account";
-import ItemDescription from "./pages/ItemDescription";
-import Login from "./pages/Login";
-import { useContext } from "react";
+import React, { useContext, Suspense } from "react";
 import { DataContext } from "./components/DataContext.js";
-import AddProductPage from "./pages/AddProductPage.js";
-import SuccessfulPaymentPage from "./pages/SuccessfulPaymentPage";
-// import { config } from 'dotenv';
-// config();
+
+const PageStructure = React.lazy(() => import("./components/PageStructure.js"));
+const Home = React.lazy(() => import("./pages/Home"));
+const Contact = React.lazy(() => import("./pages/Contact"));
+const About = React.lazy(() => import("./pages/About"));
+const SignUp = React.lazy(() => import("./pages/SignUp"));
+const Login = React.lazy(() => import("./pages/Login"));
+const NotFoundPage = React.lazy(() => import("./pages/NotFoundPage"));
+const Billing = React.lazy(() => import("./pages/Billing"));
+const Wishlist = React.lazy(() => import("./pages/Wishlist"));
+const Cart = React.lazy(() => import("./pages/Cart"));
+const Account = React.lazy(() => import("./pages/Account"));
+const ItemDescription = React.lazy(() => import("./pages/ItemDescription"));
+const AddProductPage = React.lazy(() => import("./pages/AddProductPage"));
+const SuccessfulPaymentPage = React.lazy(() => import("./pages/SuccessfulPaymentPage"));
+
+// const LoadingFallback = () => (
+//     <div style={{ padding: 40 }}>Loading...</div>
+// );
 
 function App() {
   const { auth } = useContext(DataContext);
 
-  // const location = useLocation();
-
-
-  // console.log("App rendered")
-
   const router = createBrowserRouter([
-    {
-      path: "/",
-      element: auth.authenticated ? <Home /> : <SignUp />,
-      errorElement: <NotFoundPage />,
-    },
+    { path: "/", element: auth.authenticated ? <Home /> : <SignUp />, errorElement: <NotFoundPage /> },
     { path: "/home", element: <Home /> },
     { path: "/contact", element: <Contact /> },
     { path: "/about", element: <About /> },
@@ -46,13 +41,9 @@ function App() {
     { path: "/successful-payment-page", element: <SuccessfulPaymentPage /> },
   ]);
 
-  
-
   return (
     <div className="App">
-      {/* {data ? <Home data={data} /> : <p>loading...</p> } */}
-
-      <RouterProvider router={router} />
+        <RouterProvider router={router} />
     </div>
   );
 }
