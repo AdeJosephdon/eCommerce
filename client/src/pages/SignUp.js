@@ -91,7 +91,6 @@ function SignUp() {
             <button
               className="create-account-button"
               onClick={() => registerUser()}
-              
             >
               Create Account
             </button>

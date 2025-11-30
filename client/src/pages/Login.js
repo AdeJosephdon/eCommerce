@@ -47,9 +47,12 @@ function Login() {
       console.log("Server response:", data);
 
       if (data.success) {
-        navigateHome("/home");
         setLoading(false);
         console.log("auth", auth);
+
+        if (auth && auth.authenticated ) {
+          navigateHome("/home");
+        }
       } else {
         setErrorMessage(data.message || "Login failed. Please try again.");
         setLoading(false);
