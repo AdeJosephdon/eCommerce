@@ -63,16 +63,16 @@ function Footer() {
         <img src="/Frame 719.webp" alt="Get Application"/>
 
         <div className="socials-icons">
-          <a href="www.facebook.com">  
+          <a href="www.facebook.com" aria-label="Navigate to our facebook page">  
           <Icon icon="la:facebook-f" width="30" height="30" />
           </a>
-          <a href="www.twitter.com">  
+          <a href="www.twitter.com" aria-label="Navigate to our twitter page">  
           <Icon icon="ri:twitter-line" width="30" height="30" />
           </a>
-          <a href="www.twitter.com" >  
+          <a href="www.instagram .com" aria-label="Navigate to our instagram page">  
           <Icon icon="uil:instagram" width="30" height="30" />
           </a>
-          <a href="www.linkedin.com">  
+          <a href="www.linkedin.com" aria-label="Navigate to our linkedin page">  
           <Icon icon="dashicons:linkedin" width="30" height="30" />
           </a>
 

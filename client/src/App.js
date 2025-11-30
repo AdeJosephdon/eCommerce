@@ -1,9 +1,8 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
-import React, { useContext, Suspense } from "react";
+import React, { useContext} from "react";
 import { DataContext } from "./components/DataContext.js";
 
-const PageStructure = React.lazy(() => import("./components/PageStructure.js"));
 const Home = React.lazy(() => import("./pages/Home"));
 const Contact = React.lazy(() => import("./pages/Contact"));
 const About = React.lazy(() => import("./pages/About"));

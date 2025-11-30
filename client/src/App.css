@@ -828,11 +828,17 @@ hr {
   width: 100%;
   height: 38px;
   margin: 10px 0;
-  opacity: 50%;
+  padding: 0 0 0 10px;
+  /* opacity: 50%; */
   /* text-indent: 10px; */
   background-color: #ffffff;
   border: none;
+  color: #1e1e1e;
   border-bottom: 1px solid #000000;
+}
+.sign-up-form-input::placeholder {
+  color: #000000;
+  opacity: 70%;
 }
 .create-account-button {
   background-color: #db4444;

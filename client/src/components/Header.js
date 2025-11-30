@@ -280,7 +280,7 @@ function Header() {
                 style={{ cursor: "pointer" }}
                 onClick={() => logout()}
               >
-                <a>
+                <a href="/">
                   {" "}
                   <Icon icon="solar:logout-2-outline" width="24" height="24" />
                   <span> Logout</span>

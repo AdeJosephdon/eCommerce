@@ -15,7 +15,6 @@ function Contact() {
 
 
   const handleSubmit = (event) => {
-    console.log(emailBody)
 
     event.preventDefault(); 
 
