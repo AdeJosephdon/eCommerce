@@ -50,7 +50,6 @@ function errorMessageTimeout() {
           credentials: "include",
           headers: {
             "Content-Type": "application/json",
-            // Add auth token or cookies if required
           },
           body: JSON.stringify(user),
         }
@@ -65,6 +64,8 @@ function errorMessageTimeout() {
 
         if (auth && auth.authenticated ) {
           navigateHome("/home");
+        } else {
+          clearErrorMessage("Login failed. Please try again.");
         }
       } else {
         clearErrorMessage(data.message || "Login failed. Please try again.");

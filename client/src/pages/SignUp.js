@@ -62,6 +62,8 @@ function SignUp() {
 
         if (auth && auth.authenticated ) {
           navigateHome("/home");
+        } else {
+          clearErrorMessage("Authentication failed. Please try again.");
         }
       } else {
         clearErrorMessage(data.message || "Registration failed. Please try again.");
