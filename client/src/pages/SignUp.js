@@ -2,11 +2,15 @@ import React, { useState } from "react";
 import { Icon } from "@iconify/react";
 import PageStructure from "../components/PageStructure";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import {motion} from "framer-motion";
 
 function SignUp() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const navigateHome = useNavigate();
 
   const registerUser = async () => {
     const user = {
@@ -30,7 +34,7 @@ function SignUp() {
 
       const data = await response.json();
       if (data.success) {
-        window.location.href = "/home";
+        navigateHome("/")
       }
     } catch (error) {
       console.error("Error posting product:", error);
@@ -44,7 +48,10 @@ function SignUp() {
         <img src="/dl.beatsnoop 1.webp" alt="Sign Up" />
         {/* </div> */}
 
-        <div className="create-an-account">
+        <motion.div 
+              animate={{ x: [0, -5, 10, -10, 5, 0] }}
+      transition={{ duration: 0.4 }}
+        className="create-an-account">
           <h1>Create an account</h1>
           <p>Enter your details below</p>
 
@@ -105,7 +112,7 @@ function SignUp() {
               <button>Log in</button>
             </Link>
           </p>
-        </div>
+        </motion.div>
       </main>
     </PageStructure>
   );

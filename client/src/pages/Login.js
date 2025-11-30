@@ -1,9 +1,14 @@
 import { useState, useContext } from "react";
 import PageStructure from "../components/PageStructure";
 import { DataContext } from "../components/DataContext";
+import { useNavigate } from "react-router-dom";
+import {motion} from "framer-motion";
 
 function Login() {
   const { auth } = useContext(DataContext);
+
+
+  const navigateHome = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -42,7 +47,7 @@ function Login() {
       console.log("Server response:", data);
 
       if (data.success) {
-        window.location.href = "/home";
+        navigateHome("/");
         setLoading(false);
         console.log("auth", auth);
       } else {
@@ -64,7 +69,9 @@ function Login() {
         <img src="/dl.beatsnoop 1.webp" alt="Sign Up" />
         {/* </div> */}
 
-        <div className="create-an-account">
+        <motion.div 
+              animate={{ x: [0, -5, 10, -10, 5, 0] }}
+      transition={{ duration: 0.4 }} className="create-an-account">
           <h1>Log in to Exclusive</h1>
           <p>Enter your details below</p>
 
@@ -105,7 +112,7 @@ function Login() {
             </button>
             <button className="forgot-password-button">Forget Password?</button>
           </div>
-        </div>
+        </motion.div>
       </main>
     </PageStructure>
   );
