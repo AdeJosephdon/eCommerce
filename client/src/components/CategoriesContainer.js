@@ -3,6 +3,7 @@ import ProductCard from "./ProductCard";
 import { DataContext } from "./DataContext";
 import { Icon } from "@iconify/react/dist/iconify.js";
 import Category from "./Category";
+import { motion } from "framer-motion";
 
 function CategoriesContainer() {
   const { data } = useContext(DataContext);
@@ -124,9 +125,13 @@ function CategoriesContainer() {
         {categories}
       </div>
 
-      <div className="product-card-container" ref={containerRef}>
+      <motion.div  
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }}
+      className="product-card-container" ref={containerRef}>
         {categoriesProductArrayItems}
-      </div>
+      </motion.div >
     </div>
   );
 }

@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { DataContext } from "./DataContext";
+import { motion } from "framer-motion";
 
 function ExploreProductesContainer() {
   // let bodyData
@@ -74,9 +75,13 @@ function ExploreProductesContainer() {
         <p className="timer-semibold">Explore Our Products</p>
       </div>
 
-      <div className="explore-our-product-card-container">
+
+      <motion.div  
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.5 }} className="explore-our-product-card-container">
         {exploreProducts ? exploreProductsItems : productArrayItems}
-      </div>
+      </motion.div>
 
       <div className="explore-our-product-button">
         <button onClick={() => viewAllExplore()} aria-label="view all products or collapse view">

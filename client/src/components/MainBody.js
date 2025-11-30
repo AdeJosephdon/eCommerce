@@ -7,6 +7,7 @@ import TodayContainer from "./TodayContainer";
 import CategoriesContainer from "./CategoriesContainer";
 import BestSellingContainer from "./BestSellingContainer";
 import ExploreProductesContainer from "./ExploreProductesContainer";
+import { motion } from "framer-motion";
 
 function MainBody() {
   const navigateCreateProduct = useNavigate();
@@ -44,7 +45,8 @@ function MainBody() {
         <BestSellingContainer />
 
         {/* Today's sale */}
-        <div className="buyNowContainer">
+        <div
+          className="buyNowContainer">
           <img src="/Frame 600.png" alt="buy now" />
         </div>
 

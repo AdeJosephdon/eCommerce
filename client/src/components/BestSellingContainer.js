@@ -1,6 +1,7 @@
 import { useContext, useState, useEffect } from "react";
 import ProductCard from "./ProductCard";
 import { DataContext } from "./DataContext";
+import { motion } from "framer-motion";
 
 function BestSellingContainer() {
   const { data } = useContext(DataContext);
@@ -80,10 +81,19 @@ function BestSellingContainer() {
         </div>
       </div>
 
+
+
+
       {bestSelling ? (
-        <div className="best-selling-card-container">{bestSellingItems}</div>
+        <motion.div  
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }} className="best-selling-card-container">{bestSellingItems}</motion.div>
       ) : (
-        <div className="product-card-container">{productArrayItems}</div>
+        <motion.div  
+      initial={{ opacity: 0, x: 20 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }} className="product-card-container">{productArrayItems}</motion.div>
       )}
     </div>
   );

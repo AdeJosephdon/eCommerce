@@ -3,6 +3,7 @@ import ProductCard from "./ProductCard";
 import { DataContext } from "./DataContext";
 import Timer from "./Timer";
 import { Icon } from "@iconify/react/dist/iconify.js";
+import { motion } from "framer-motion";
 
 function TodayContainer() {
   const { data } = useContext(DataContext);
@@ -84,9 +85,13 @@ function TodayContainer() {
         </div>
       </div>
 
-      <div className="product-card-container" ref={containerRef}>
+      <motion.div 
+      initial={{ opacity: 0, x: 100 }}
+      animate={{ opacity: 1, x: 0 }}
+      transition={{ duration: 0.5 }}
+      className="product-card-container" ref={containerRef}>
         {productArrayItems}
-      </div>
+      </motion.div>
     </div>
   );
 }
