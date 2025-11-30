@@ -1,23 +1,45 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { Icon } from "@iconify/react";
 import PageStructure from "../components/PageStructure";
-import { Link } from "react-router-dom";
+import { data, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import {motion} from "framer-motion";
+import { DataContext } from "../components/DataContext";
 
 function SignUp() {
+  const { auth } = useContext(DataContext);
+
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigateHome = useNavigate();
 
   const registerUser = async () => {
+
+    setLoading(true);
+
     const user = {
       name: name,
       email: email,
       password: password,
     };
+
+    function errorMessageTimeout() {
+      return setTimeout(() => {
+        setErrorMessage("");
+      }, 5000);
+    }
+
+    function clearErrorMessage(dataMessage) {
+        setErrorMessage(dataMessage);
+        errorMessageTimeout()
+    }
+    
+
+
 
     try {
       const response = await fetch(
@@ -34,11 +56,23 @@ function SignUp() {
 
       const data = await response.json();
       if (data.success) {
-        navigateHome("/home")
+
+        setLoading(false);
+        console.log("auth", auth);
+
+        if (auth && auth.authenticated ) {
+          navigateHome("/home");
+        }
+      } else {
+        clearErrorMessage(data.message || "Registration failed. Please try again.");
+        setLoading(false);
       }
     } catch (error) {
       console.error("Error posting product:", error);
+      setLoading(false);
+      clearErrorMessage("Login failed. Please try again.", error.message);
     }
+    setLoading(false);
   };
 
   return (
@@ -56,6 +90,7 @@ function SignUp() {
           <p>Enter your details below</p>
 
           <form action={SignUp}>
+            {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
             <input
               id="name"
               type="name"
@@ -92,7 +127,8 @@ function SignUp() {
               className="create-account-button"
               onClick={() => registerUser()}
             >
-              Create Account
+              {loading ? "loading..." : "Create Account"}
+              
             </button>
             <button className="sign-up-form-button">
               {" "}

@@ -17,10 +17,22 @@ function Login() {
 
   const [loading, setLoading] = useState(false);
 
+  
+function errorMessageTimeout() {
+  return setTimeout(() => {
+    setErrorMessage("");
+  }, 5000);
+}
+
+    function clearErrorMessage(dataMessage) {
+        setErrorMessage(dataMessage);
+        errorMessageTimeout()
+    }
+
   const loginUser = async () => {
     setLoading(true);
     if (!email || !password) {
-      setErrorMessage("Please fill in all fields.");
+      clearErrorMessage("Please fill in all fields.");
       setLoading(false);
       return;
     }
@@ -28,6 +40,7 @@ function Login() {
       email: email,
       password: password,
     };
+
 
     try {
       const response = await fetch(
@@ -54,13 +67,13 @@ function Login() {
           navigateHome("/home");
         }
       } else {
-        setErrorMessage(data.message || "Login failed. Please try again.");
+        clearErrorMessage(data.message || "Login failed. Please try again.");
         setLoading(false);
       }
     } catch (error) {
       console.error("Error posting product:", error);
       setLoading(false);
-      setErrorMessage("Login failed. Please try again.", error.message);
+      clearErrorMessage("Login failed. Please try again.", error.message);
     }
     setLoading(false);
   };
