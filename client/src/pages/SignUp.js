@@ -84,9 +84,7 @@ function SignUp() {
         <img src="/dl.beatsnoop 1.webp" alt="Sign Up" />
         {/* </div> */}
 
-        <motion.div 
-              animate={{ x: [0, -5, 10, -10, 5, 0] }}
-      transition={{ duration: 0.4 }}
+        <div 
         className="create-an-account">
           <h1>Create an account</h1>
           <p>Enter your details below</p>
@@ -149,7 +147,7 @@ function SignUp() {
               <button>Log in</button>
             </Link>
           </p>
-        </motion.div>
+        </div>
       </main>
     </PageStructure>
   );

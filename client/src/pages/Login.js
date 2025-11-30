@@ -86,9 +86,7 @@ function errorMessageTimeout() {
         <img src="/dl.beatsnoop 1.webp" alt="Sign Up" />
         {/* </div> */}
 
-        <motion.div 
-              animate={{ x: [0, -5, 10, -10, 5, 0] }}
-      transition={{ duration: 0.4 }} className="create-an-account">
+        <div  className="create-an-account">
           <h1>Log in to Exclusive</h1>
           <p>Enter your details below</p>
 
@@ -129,7 +127,7 @@ function errorMessageTimeout() {
             </button>
             <button className="forgot-password-button">Forget Password?</button>
           </div>
-        </motion.div>
+        </div>
       </main>
     </PageStructure>
   );
