@@ -34,7 +34,7 @@ function SignUp() {
 
       const data = await response.json();
       if (data.success) {
-        navigateHome("/")
+        navigateHome("/home")
       }
     } catch (error) {
       console.error("Error posting product:", error);

@@ -47,7 +47,7 @@ function Login() {
       console.log("Server response:", data);
 
       if (data.success) {
-        navigateHome("/");
+        navigateHome("/home");
         setLoading(false);
         console.log("auth", auth);
       } else {
