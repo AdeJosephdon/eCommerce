@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import {motion} from "framer-motion";
 
 function Login() {
-  const { auth } = useContext(DataContext);
+  const { auth, refetchAuth } = useContext(DataContext);
 
 
   const navigateHome = useNavigate();
@@ -60,6 +60,9 @@ function errorMessageTimeout() {
 
       if (data.success) {
         setLoading(false);
+
+        await refetchAuth();
+
         console.log("auth", auth);
 
         if (auth && auth.authenticated ) {

@@ -39,6 +39,14 @@ function DataProvider({ children }) {
     fetchData();
   }, []);
 
+
+
+const [authRefreshKey, setAuthRefreshKey] = useState(0);
+
+const refetchAuth = () => {
+  setAuthRefreshKey(prev => prev + 1);
+};
+
   useEffect(() => {
     const fetchAuth = async () => {
       try {
@@ -76,9 +84,9 @@ function DataProvider({ children }) {
     };
 
     fetchAuth();
-  }, []);
+  }, [authRefreshKey]); 
 
-  // 3. Fetch Authenticated User Data (Only after Auth is loaded)
+
   useEffect(() => {
     const fetchUserData = async () => {
       try {
@@ -498,6 +506,7 @@ function DataProvider({ children }) {
         increaseQuantity,
         auth,
         setAuth,
+        refetchAuth,
         currentUser,
         setCurrentUser,
         openAlertPopup,

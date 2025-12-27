@@ -3,11 +3,10 @@ import { Icon } from "@iconify/react";
 import PageStructure from "../components/PageStructure";
 import { data, Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-import {motion} from "framer-motion";
 import { DataContext } from "../components/DataContext";
 
 function SignUp() {
-  const { auth } = useContext(DataContext);
+  const { auth, refetchAuth } = useContext(DataContext);
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -58,7 +57,11 @@ function SignUp() {
       if (data.success) {
 
         setLoading(false);
+
+        await refetchAuth();
+
         console.log("auth", auth);
+
 
         if (auth && auth.authenticated ) {
           navigateHome("/home");
